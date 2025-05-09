@@ -209,8 +209,8 @@ def visualize_table_speedup(speedup_data: np.ndarray, table_index: list, table_c
     def style_positive(value, props=''):
         return props if value >= 1 else None
 
-    style_df = df.style.map(style_negative, props='color: red;')\
-                .map(style_positive, props='color: green;')\
+    style_df = df.style.applymap(style_negative, props='color: red;')\
+                .applymap(style_positive, props='color: green;')\
                 .set_properties(**{'border': '1px black solid !important', 'text-align': 'center'})\
                 .set_table_styles([{
                     'selector': 'th',
